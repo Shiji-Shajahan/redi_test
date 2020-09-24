@@ -1,0 +1,192 @@
+Loading...
+ 
+Welcome to JS/Linux (x86)
+ 
+Use 'vflogin username' to connect to your account.
+You can create a new account at https://vfsync.org/signup .
+Use 'export_file filename' to export a file to your computer.
+Imported files are written to the home directory.
+ 
+[root@localhost ~]# ls
+dos       hello.c   hello.js
+[root@localhost ~]# ls -R
+.:
+dos       hello.c   hello.js
+ 
+./dos:
+asm-1.9     asm.com     debug.com   hpigot.com  hpigot.s
+ 
+./dos/asm-1.9:
+Changelog    display.s    expr.s       lister.s     readme.txt   symtab.i
+asm.s        dos.i        input.s      message.s    support.s    symtab.s
+direct.s     equ.s        license.txt  output.s     symbols.s
+[root@localhost ~]# mkdir redi
+[root@localhost ~]# ls
+dos       hello.c   hello.js  redi
+[root@localhost ~]# cd redi
+[root@localhost redi]# mkdir d1
+[root@localhost redi]# mkdir d2 d3
+[root@localhost redi]# ls
+d1  d2  d3
+[root@localhost redi]# touch d1/doc1.txt
+[root@localhost redi]# touch d2/doc2.txt
+[root@localhost redi]# cd d3
+[root@localhost d3]# touch doc3.txt
+[root@localhost d3]# cd ..
+[root@localhost redi]# ls -R
+.:
+d1  d2  d3
+ 
+./d1:
+doc1.txt
+ 
+./d2:
+doc2.txt
+ 
+./d3:
+doc3.txt
+[root@localhost redi]# cp d1/doc1.txt d2
+[root@localhost redi]# ls -R
+.:
+d1  d2  d3
+ 
+./d1:
+doc1.txt
+ 
+./d2:
+doc1.txt  doc2.txt
+./d3:
+doc3.txt
+[root@localhost redi]# mv d2/doc1.txt d3
+[root@localhost redi]# ls -R
+.:
+d1  d2  d3
+ 
+./d1:
+doc1.txt
+ 
+./d2:
+doc2.txt
+ 
+./d3:
+doc1.txt  doc3.txt
+[root@localhost redi]# rm -rf d3
+[root@localhost redi]# ls -R
+.:
+d1  d2
+ 
+./d1:
+doc1.txt
+ 
+./d2:
+doc2.txt
+[root@localhost redi]# rm d2/doc2.txt
+[root@localhost redi]# ls -R
+.:
+.:
+d1  d2
+ 
+./d1:
+doc1.txt
+ 
+./d2:
+[root@localhost redi]#
+[root@localhost redi]# pwd
+/root/redi
+[root@localhost redi]# mv d1/doc1.txt d2
+[root@localhost redi]# ls
+d1  d2
+[root@localhost redi]# ls -R
+.:
+d1  d2
+ 
+./d1:
+ 
+./d2:
+doc1.txt
+[root@localhost redi]# echo "Hello World" > d2/doc1.txt
+[root@localhost redi]# cat d2/doc1.txt
+Hello World
+[root@localhost redi]# mkdir d4
+[root@localhost redi]# ls -R
+.:
+d1  d2  d4
+ 
+./d1:
+ 
+./d2:
+doc1.txt
+ 
+./d4:
+[root@localhost redi]# touch d4/doc4.txt
+[root@localhost redi]# ls -R
+.:
+d1  d2  d4
+ 
+./d1:
+ 
+./d2:
+doc1.txt
+ 
+./d4:
+doc4.txt
+[root@localhost redi]# find . -name "*.txt"
+./d2/doc1.txt
+./d4/doc4.txt
+[root@localhost redi]# find /root/redi -name "*.txt"
+/root/redi/d2/doc1.txt
+/root/redi/d4/doc4.txt
+[root@localhost redi]# cd ..
+[root@localhost ~]# ls -R
+.:
+dos       hello.c   hello.js  redi
+ 
+./dos:
+asm-1.9     asm.com     debug.com   hpigot.com  hpigot.s
+ 
+./dos/asm-1.9:
+Changelog    display.s    expr.s       lister.s     readme.txt   symtab.i
+asm.s        dos.i        input.s      message.s    support.s    symtab.s
+direct.s     equ.s        license.txt  output.s     symbols.s
+ 
+./redi:
+d1  d2  d4
+ 
+./redi/d1:
+ 
+./redi/d2:
+doc1.txt
+ 
+./redi/d4:
+doc4.txt
+[root@localhost ~]# pwd
+/root
+[root@localhost ~]# rm -rf redi
+[root@localhost ~]# ls -R
+.:
+dos       hello.c   hello.js
+ 
+./dos:
+asm-1.9     asm.com     debug.com   hpigot.com  hpigot.s
+ 
+./dos/asm-1.9:
+Changelog    display.s    expr.s       lister.s     readme.txt   symtab.i
+asm.s        dos.i        input.s      message.s    support.s    symtab.s
+direct.s     equ.s        license.txt  output.s     symbols.s
+
+
+1.	Check the current state of the directory structure.
+2.	Create directory ”redi” in home directory
+3.	Create three subdirectories inside “redi”: d1, d2, d3
+4.	In each of them, create files doc1.txt, doc2.txt and doc3.txt respectively.
+5.	Copy file doc1.txt from d1 to d2.
+6.	Move file doc1.txt from d2 to d3.
+7.	Delete folder d3 and then file doc2.txt in d2.
+8.	Check the current state of “redi” folder. 
+9.	Show the current working directory.
+10.	Move file doc1.txt from d1 to d2.
+11.	Create some content in doc1.txt in d2 and show it in command line.
+12.	Create directory d4 and doc4.txt inside it in “redi” folder.
+13.	Search for all files ending with “*.txt”.
+14.	Delete the whole “redi” folder.
+
